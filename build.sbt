@@ -1,0 +1,1 @@
+libraryDependencies += "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.9.0"
