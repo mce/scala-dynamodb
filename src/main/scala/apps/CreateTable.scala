@@ -1,5 +1,7 @@
+package apps
+
 import com.amazonaws.services.dynamodbv2.model._
-import dsl.{DynamoDBClient, DynamoDB, CredentialsProvider}
+import dsl.{CredentialsProvider, DynamoDB, DynamoDBClient}
 
 import scala.collection.JavaConversions._
 

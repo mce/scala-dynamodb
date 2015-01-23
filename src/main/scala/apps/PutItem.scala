@@ -1,6 +1,8 @@
+package apps
 
-import com.amazonaws.services.dynamodbv2.document.{ DynamoDB => AmazonDynamoDB, Table }
-import dsl.{DynamoDBClient, DynamoDB, CredentialsProvider}
+
+import com.amazonaws.services.dynamodbv2.document.{DynamoDB => AmazonDynamoDB, Table}
+import dsl.{CredentialsProvider, DynamoDB, DynamoDBClient}
 import items.GameScore
 
 object PutItem {
