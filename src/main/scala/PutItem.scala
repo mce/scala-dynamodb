@@ -1,12 +1,11 @@
-import com.amazonaws.auth.profile.ProfileCredentialsProvider
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
-import com.amazonaws.services.dynamodbv2.document.{Item, DynamoDB, Table}
+import com.amazonaws.services.dynamodbv2.document.{DynamoDB, Item, Table}
+import dsl.{AmazonDynamoDBClient, DynamoDB, ProfileCredentialsProvider}
 
 case class GameScore(userId: Int, game: String, score: Long)
 
 object PutItem {
   def main(args: Array[String]): Unit = {
-    val dynamoDb = new DynamoDB(new AmazonDynamoDBClient(new ProfileCredentialsProvider()))
+    val dynamoDb = DynamoDB(AmazonDynamoDBClient(ProfileCredentialsProvider()))
     val table = dynamoDb.getTable("test")
 
     putItem(dynamoDb, table, GameScore(1, "Angry Birds", 321))
