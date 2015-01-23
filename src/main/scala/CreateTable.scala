@@ -12,8 +12,8 @@ object CreateTable {
 
   def createTable(name: String): Unit = {
     val dynamoDb = new DynamoDB(new AmazonDynamoDBClient(new ProfileCredentialsProvider()))
-    val attributeDefinitions = Seq.empty[AttributeDefinition]
-    val keySchema: Seq[KeySchemaElement] = Seq(new KeySchemaElement().withAttributeName("Id").withKeyType(KeyType.HASH))
+    val attributeDefinitions = Seq(new AttributeDefinition().withAttributeName("id").withAttributeType("N"))
+    val keySchema: Seq[KeySchemaElement] = Seq(new KeySchemaElement().withAttributeName("id").withKeyType(KeyType.HASH))
 
     val request = new CreateTableRequest()
       .withTableName(name)
