@@ -1,8 +1,5 @@
-import com.amazonaws.auth.profile.ProfileCredentialsProvider
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
-import com.amazonaws.services.dynamodbv2.document.DynamoDB
 import com.amazonaws.services.dynamodbv2.model._
-import dsl.{AmazonDynamoDBClient, DynamoDB, ProfileCredentialsProvider}
+import dsl.{DynamoDBClient, DynamoDB, CredentialsProvider}
 
 import scala.collection.JavaConversions._
 
@@ -12,7 +9,7 @@ object CreateTable {
   }
 
   def createTable(name: String): Unit = {
-    val dynamoDb = DynamoDB(AmazonDynamoDBClient(ProfileCredentialsProvider()))
+    val dynamoDb = DynamoDB(DynamoDBClient(CredentialsProvider()))
     val attributeDefinitions = Seq(new AttributeDefinition().withAttributeName("id").withAttributeType("N"))
     val keySchema: Seq[KeySchemaElement] = Seq(new KeySchemaElement().withAttributeName("id").withKeyType(KeyType.HASH))
 
